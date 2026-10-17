@@ -1,0 +1,403 @@
+body.billing-page {
+  --primary: #be185d;
+  --primary-foreground: #fff;
+  --secondary: #f1eaf5;
+  --secondary-foreground: #4c315b;
+  --muted: #f6f2f8;
+  --muted-foreground: #66566e;
+  --ui-accent: #fce7f0;
+  --accent-foreground: #a5114e;
+  --border: #e4d9e9;
+  --input: #d4c5dd;
+  --ring: #be185d;
+  --text-primary: #291635;
+  --text-secondary: #5f4b6a;
+  --text-muted: #6b5875;
+  --accent: #be185d;
+  --accent-dark: #9d124c;
+  --accent-soft: #fce7f0;
+  background: #f8f5fb;
+  color: #291635;
+}
+body.billing-page .studio-nav {
+  background: #291334;
+  border-color: #4c2c5d;
+  box-shadow: 0 5px 20px #29133422;
+}
+body.billing-page .studio-brand-symbol {
+  background: #d12d75;
+  box-shadow: 0 0 0 1px #ee80b155;
+}
+body.billing-page .studio-brand-name span {
+  color: #ff8abb;
+}
+body.billing-page .studio-nav-links > a,
+body.billing-page .studio-dropdown-trigger {
+  color: #e2d5e9;
+}
+body.billing-page .studio-nav-links > a.active,
+body.billing-page .studio-nav-links > a:hover,
+body.billing-page .studio-dropdown-trigger.active,
+body.billing-page .studio-dropdown-trigger:hover,
+body.billing-page .studio-dropdown-trigger[aria-expanded="true"] {
+  background: #603450;
+  color: #fff;
+}
+body.billing-page .studio-workspace-label {
+  border-color: #60446d;
+  color: #e6c9ee;
+}
+body.billing-page .studio-workspace-label strong {
+  color: #fff;
+}
+body.billing-page .studio-workspace-label small {
+  color: #ddc4e8;
+}
+body.billing-page .studio-dropdown-panel a {
+  color: #422451;
+}
+body.billing-page .studio-dropdown-panel a:hover {
+  background: #f7edf9;
+}
+body.billing-page .studio-dropdown-panel small {
+  color: #66566e;
+}
+body.billing-page .customer-nav-icon {
+  color: #8c2873;
+  background: #f8e7f3;
+}
+body.billing-page .studio-mobile-nav > span,
+body.billing-page .studio-mobile-nav button {
+  background: #50305e;
+  color: #fff;
+  border-color: #765382;
+}
+body.billing-page .workspace-breadcrumb,
+body.billing-page .workspace-breadcrumb span:last-child {
+  color: #66516f;
+}
+body.billing-page .workspace-heading {
+  border-color: #ddcfe5;
+}
+body.billing-page .workspace-heading h1 {
+  color: #30143e;
+}
+body.billing-page .workspace-heading p {
+  color: #65506f;
+}
+body.billing-page .workspace-eyebrow {
+  color: #a51d59;
+}
+body.billing-page .workspace-eyebrow > span,
+body.billing-page .heading-dot {
+  color: #cf266e;
+  background-color: transparent;
+}
+body.billing-page .workspace-eyebrow > span {
+  background: #cf266e;
+}
+body.billing-page .billing-workspace [data-slot="card"] {
+  border-color: #e2d6e9;
+  box-shadow: 0 4px 18px #42245108;
+}
+body.billing-page h2,
+body.billing-page h3,
+body.billing-page .section-heading h2 {
+  color: #3a2049;
+}
+body.billing-page .section-step {
+  background: #f4e8f6;
+  color: #8d397f;
+}
+body.billing-page [data-slot="input"],
+body.billing-page [data-slot="select-trigger"] {
+  color: #3a2049;
+  border-color: #d5c4dd;
+  background: #fff;
+}
+body.billing-page [data-slot="input"]::placeholder {
+  color: #786381;
+}
+body.billing-page [data-slot="input"]:focus-visible,
+body.billing-page [data-slot="select-trigger"]:focus-visible {
+  border-color: #c82c72;
+  outline: 3px solid #d52c771c;
+}
+body.billing-page [data-slot="button"][data-variant="outline"] {
+  color: #5e346b;
+  border-color: #d7c7df;
+}
+body.billing-page [data-slot="button"][data-variant="outline"]:hover {
+  background: #faf0f7;
+  border-color: #b971a0;
+}
+body.billing-page [data-slot="button"]:focus-visible {
+  outline-color: #d764a4;
+}
+body.billing-page .history-trigger {
+  background: #fff;
+  color: #8d245d;
+  border-color: #ddb6cd;
+}
+body.billing-page .service-tabs [role="tab"][data-state="active"],
+body.billing-page [aria-label="Service categories"] [data-state="active"] {
+  background: #522963;
+  color: #fff;
+  box-shadow: 0 3px 8px #52296320;
+}
+body.billing-page .service-tile {
+  border-color: #e1d4e8;
+  border-radius: 12px;
+  background: #fff;
+}
+body.billing-page .service-tile:hover {
+  background: #fff7fb;
+  border-color: #ce6395;
+  box-shadow: 0 6px 18px #be185d16;
+}
+body.billing-page .service-tile.is-selected {
+  background: #fff1f7;
+  border: 1px solid #cb4b88;
+  box-shadow: 0 0 0 1px #cb4b8822;
+}
+body.billing-page .service-tile > strong {
+  color: #422451;
+  font-size: 15px;
+  font-weight: 650;
+}
+body.billing-page .service-tile-bottom > span:first-child {
+  color: #a81c58;
+  font-size: 18px;
+  font-weight: 750;
+}
+body.billing-page .service-tile-top > span {
+  color: #754c84;
+}
+body.billing-page .service-tile-bottom > span:last-child {
+  color: #a91c59;
+  background: #fce7f0;
+}
+body.billing-page
+  .service-tile.is-selected
+  .service-tile-bottom
+  > span:last-child {
+  background: #be185d;
+  color: #fff;
+}
+body.billing-page .order-heading {
+  background: #3b1b4b;
+  border-color: #3b1b4b;
+  border-radius: 11px 11px 0 0;
+}
+body.billing-page .order-heading h2,
+body.billing-page .order-heading svg {
+  color: #fff;
+}
+body.billing-page .order-heading p {
+  color: #e0c8ec;
+}
+body.billing-page .order-heading [data-slot="badge"] {
+  background: #ffffff1a;
+  color: #f5e8fb;
+  border-color: #ffffff22;
+}
+body.billing-page .order-symbol {
+  background: #ffffff14;
+  color: #efc5e7;
+}
+body.billing-page .order-empty h3 {
+  color: #593368;
+}
+body.billing-page .order-empty p,
+body.billing-page .order-item-meta {
+  color: #735b7d;
+}
+body.billing-page .order-totals > div,
+body.billing-page .order-totals > div > span:last-child {
+  color: #63496e;
+}
+body.billing-page .total-due {
+  background: #faf0f7;
+  border-color: #ecd0e0;
+  border-radius: 9px;
+  padding: 15px;
+}
+body.billing-page .total-due strong,
+body.billing-page .total-due .total-value {
+  color: #a71856;
+}
+body.billing-page .payment-options [data-slot="button"].payment-selected {
+  background: #fce7f0;
+  color: #a71856;
+  border-color: #d66b9d;
+}
+body.billing-page .payment-dot {
+  background: #be185d;
+}
+body.billing-page .save-bill-button,
+body.billing-page .workspace-primary {
+  background: linear-gradient(115deg, #be185d, #a62679);
+  color: #fff;
+  border: 1px solid #a21352;
+  box-shadow: 0 5px 16px #be185d2a;
+}
+body.billing-page .save-bill-button:hover,
+body.billing-page .workspace-primary:hover {
+  background: #9d124c;
+  box-shadow: 0 6px 20px #be185d30;
+}
+body.billing-page [data-slot="switch"][data-state="checked"] {
+  background: #be185d;
+}
+body.billing-page [data-slot="dialog-content"] {
+  color: #3a2049;
+  border-color: #d7c5e0;
+  box-shadow: 0 24px 80px #29133455;
+}
+body.billing-page [data-slot="dialog-overlay"] {
+  background: #291334aa;
+}
+body.billing-page [data-slot="dialog-title"] {
+  color: #3a2049;
+}
+body.billing-page [data-slot="dialog-description"] {
+  color: #66516f;
+}
+body.billing-page .dialog-heading-icon {
+  background: #f9e3ef;
+  color: #b12366;
+}
+body.billing-page .workspace-bottom {
+  color: #71597b;
+  border-color: #e1d4e8;
+}
+body.billing-page .workspace-bottom svg {
+  color: #ad286b;
+}
+@media print {
+  body.billing-page {
+    background: #fff;
+    color: #000;
+  }
+}
+body.billing-page .service-symbol.tone-hair {
+  background: #f1e6f7;
+  color: #7c4294;
+}
+body.billing-page .service-symbol.tone-skin {
+  background: #fce5f0;
+  color: #b72b68;
+}
+body.billing-page .service-symbol.tone-nails {
+  background: #eee6fb;
+  color: #7854a8;
+}
+body.billing-page .service-category {
+  color: #765480;
+}
+body.billing-page .selected-count {
+  background: #be185d;
+  color: #fff;
+}
+body.billing-page .customer-card label,
+body.billing-page .payment-label {
+  color: #63496e;
+}
+body.billing-page .customer-primary,
+body.billing-page .catalogue-primary,
+body.billing-page .workspace-primary {
+  background: linear-gradient(115deg, #be185d, #a62679);
+  color: #fff;
+  border: 1px solid #a21352;
+  box-shadow: 0 5px 16px #be185d2a;
+}
+body.billing-page .customer-primary:hover,
+body.billing-page .catalogue-primary:hover,
+body.billing-page .workspace-primary:hover {
+  background: #9d124c;
+}
+body.billing-page .membership-banner,
+body.billing-page .report-financial-strip {
+  background: #3b1b4b;
+  border-color: #3b1b4b;
+}
+body.billing-page .membership-banner-eyebrow {
+  color: #edc4e6;
+}
+body.billing-page .membership-banner-icon {
+  background: #ffffff12;
+  color: #edc4e6;
+  border-color: #ffffff22;
+}
+body.billing-page .membership-banner p,
+body.billing-page .membership-banner-price span {
+  color: #ead6f0;
+}
+body.billing-page .report-financial-strip span,
+body.billing-page .report-financial-strip small {
+  color: #e5cdea;
+}
+body.billing-page .report-financial-strip > div + div {
+  border-color: #6d467b;
+}
+body.billing-page .report-controls [role="tab"][data-state="active"] {
+  background: #be185d;
+  color: #fff;
+  box-shadow: 0 3px 8px #be185d22;
+}
+body.billing-page .report-chart-toggle button[aria-pressed="true"] {
+  background: #fce7f0;
+  color: #a71856;
+}
+body.billing-page .report-metrics > [data-slot="card"] {
+  border-top-color: #be185d;
+}
+body.billing-page .feature-metric-icon {
+  background: #fce7f0;
+  color: #a71856;
+}
+body.billing-page .team-person {
+  border-top-color: #8c3c84;
+}
+body.billing-page .team-avatar {
+  background: #f3e6f8;
+  color: #77358b;
+  border-color: #dcc0e7;
+}
+body.billing-page .team-avatar.tone-1 {
+  background: #fce5f0;
+  color: #a62462;
+  border-color: #edc3d7;
+}
+body.billing-page .team-avatar.tone-2 {
+  background: #eee5fb;
+  color: #7651a1;
+  border-color: #dac8ef;
+}
+body.billing-page .customer-list-card th,
+body.billing-page .report-breakdown th {
+  background: #f2eaf7;
+  color: #593867;
+}
+body.billing-page .catalogue-prices strong,
+body.billing-page .customer-spending {
+  color: #a71856;
+}
+body.billing-page .dashboard-intro {
+  background: linear-gradient(130deg, #291334, #522963);
+}
+body.billing-page .dashboard-intro > span {
+  color: #eab4d2;
+}
+body.billing-page .dashboard-intro p {
+  color: #ead6f0;
+}
+body.billing-page .dashboard-intro > a {
+  color: #9d124c;
+}
+body.billing-page .dashboard-directory > a {
+  color: #a71856;
+}
+body.billing-page .dashboard-directory > a:hover {
+  background: #fcf2f8;
+}

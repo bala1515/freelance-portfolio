@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Newbilling | Salon Billing</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag :app %>
+  </head>
+
+  <body class="auth-body">
+    <div class="auth-wrapper">
+
+      <section class="auth-brand">
+        <div class="brand-inner">
+          <div class="brand-logo">💈 Newbilling</div>
+          <h1>Your salon.<br>Beautifully managed.</h1>
+          <p>A clear workspace for your customers, team, and everyday business.</p>
+          <ul class="brand-points">
+            <li>Fast billing and invoices</li>
+            <li>Customer profiles and memberships</li>
+            <li>Daily, weekly, monthly and yearly reports</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="auth-form-side">
+        <div class="auth-card">
+          <% if notice %><div class="auth-flash success"><%= notice %></div><% end %>
+          <% if alert %><div class="auth-flash error"><%= alert %></div><% end %>
+          <%= yield %>
+        </div>
+      </section>
+
+    </div>
+  </body>
+</html>

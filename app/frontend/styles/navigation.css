@@ -1,0 +1,110 @@
+.studio-nav-dropdown {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: stretch;
+}
+.studio-dropdown-trigger {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  position: relative;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: #5b625e;
+  font-size: 13px;
+  font-weight: 550;
+  cursor: pointer;
+}
+.studio-dropdown-trigger.active,
+.studio-dropdown-trigger:hover,
+.studio-dropdown-trigger[aria-expanded="true"] {
+  color: #47334f;
+}
+.studio-dropdown-trigger.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 3px;
+  background: #47334f;
+  border-radius: 3px 3px 0 0;
+}
+.studio-dropdown-trigger:focus-visible {
+  outline: 2px solid #915ca8;
+  outline-offset: 5px;
+  border-radius: 3px;
+}
+.studio-dropdown-panel {
+  position: absolute;
+  top: calc(100% - 5px);
+  left: -20px;
+  width: 296px;
+  padding: 8px;
+  background: #fff;
+  border: 1px solid #e9dfee;
+  box-shadow: 0 12px 40px #28172f14;
+  border-radius: 12px;
+  z-index: 90;
+}
+.studio-nav-links .studio-dropdown-panel a {
+  display: flex;
+  padding: 12px 10px;
+  gap: 11px;
+  align-items: center;
+  height: auto;
+  border-radius: 8px;
+  color: #4e3858;
+}
+.studio-dropdown-panel a:hover,
+.studio-dropdown-panel a:focus-visible {
+  background: #f5f1f7;
+  outline: none;
+}
+.studio-dropdown-panel a > span:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 4px;
+}
+.studio-dropdown-panel strong {
+  font-size: 12px;
+  font-weight: 600;
+}
+.studio-dropdown-panel small {
+  font-size: 12px;
+  font-weight: 400;
+  color: #674a73;
+}
+.studio-dropdown-panel a > svg {
+  color: #664973;
+}
+.customer-nav-icon {
+  width: 34px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  background: #f1eaf4;
+  color: #674a73;
+  border-radius: 8px;
+}
+.mobile-customer-links {
+  border-top: 1px solid #f0e8f3;
+  border-bottom: 1px solid #f0e8f3;
+  padding: 10px 0;
+}
+.mobile-customer-links > span {
+  display: block;
+  padding: 5px 14px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #664973;
+}
+.studio-navigation-dialog .mobile-customer-links a {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}

@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  customername: MyString
+  phone: 1
+  service: MyString
+  discount: 1
+  gst: false
+  payment_method: MyString
+
+two:
+  customername: MyString
+  phone: 1
+  service: MyString
+  discount: 1
+  gst: false
+  payment_method: MyString

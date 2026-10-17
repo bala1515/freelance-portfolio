@@ -1,0 +1,15 @@
+<h2 class="auth-title">Forgot password?</h2>
+<p class="auth-subtitle">Email kudunga, reset link anuppurom</p>
+
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="auth-field">
+    <%= f.label :email %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "you@example.com" %>
+  </div>
+
+  <%= f.submit "Send reset link", class: "auth-btn" %>
+<% end %>
+
+<%= render "devise/shared/links" %>
