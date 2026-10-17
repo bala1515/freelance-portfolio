@@ -14,8 +14,6 @@ Rails.application.routes.draw do
     post "htrqzvlncpxmkas/customers", to: "/customers#create"
     get "htrqzvlncpxmkas/customers/:token", to: "/customers#show"
     post "htrqzvlncpxmkas/customers/:token/renew", to: "/customers#renew"
-    resource :session, only: [:show, :create, :destroy]
-    resource :registration, only: [:create]
     post "kmxgyaevmqogavk/create_bill", to: "/billing#create_update_bill"
     get "wyaglkrsuzjlfax/bill_history", to: "/billing#bill_history"
     get "zvpkqndtxhrmfls/bills/:token", to: "/billing#show"
