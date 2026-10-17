@@ -9,8 +9,11 @@ class ResendDelivery
   end
 
   def deliver!(message)
-    key = ENV.fetch("RESEND_API_KEY")
-    raise "Missing Resend API key" if key.strip.empty?
+    key = ENV.fetch("RESEND_API_KEY", "").strip
+    if key.empty?
+      Rails.logger.error("Resend delivery configuration error: RESEND_API_KEY is missing or blank")
+      raise "Missing Resend API key"
+    end
 
     uri = URI("https://api.resend.com/emails")
     request = Net::HTTP::Post.new(uri)
@@ -26,7 +29,11 @@ class ResendDelivery
     response = Net::HTTP.start(uri.host, uri.port, use_ssl: true, open_timeout: 5, read_timeout: 15, write_timeout: 5) do |http|
       http.request(request)
     end
-    raise "Email provider rejected delivery (#{response.code})" unless response.is_a?(Net::HTTPSuccess)
+    unless response.is_a?(Net::HTTPSuccess)
+      # Do not log response bodies: they can echo addresses or submitted content.
+      Rails.logger.error("Resend delivery rejected: HTTP #{response.code}")
+      raise "Email provider rejected delivery (#{response.code})"
+    end
 
     response
   end
