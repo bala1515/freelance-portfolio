@@ -67,6 +67,8 @@ export default function Portfolio() {
   const [copied, setCopied] = useState(false);
   const [copyError, setCopyError] = useState("");
   const [brief, setBrief] = useState({ name: "", email: "", idea: "" });
+  const [sending, setSending] = useState(false);
+  const [sendStatus, setSendStatus] = useState("");
   useEffect(() => {
     const nodes = document.querySelectorAll(".bb-reveal");
     const observer = new IntersectionObserver(
@@ -147,11 +149,27 @@ export default function Portfolio() {
       );
     }
   };
-  const sendBrief = (event) => {
+  const sendBrief = async (event) => {
     event.preventDefault();
-    const subject = `A project idea from ${brief.name.trim()}`;
-    const body = `Hi Bala,\n\n${brief.idea.trim()}\n\nName: ${brief.name.trim()}\nEmail: ${brief.email.trim()}\n`;
-    window.location.href = `mailto:${EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    if (sending) return;
+    setSending(true);
+    setSendStatus("");
+    try {
+      const response = await fetch("/contact/enquiries", {
+        method: "POST",
+        credentials: "same-origin",
+        headers: { "Content-Type": "application/json", Accept: "application/json", "X-CSRF-Token": document.querySelector('meta[name="csrf-token"]')?.content || "" },
+        body: JSON.stringify(brief),
+      });
+      const result = await response.json();
+      if (!response.ok) throw new Error(result.error || "Unable to send. Please try again.");
+      setSendStatus(result.message);
+      setBrief({ name: "", email: "", idea: "" });
+    } catch (error) {
+      setSendStatus(error.message || "Unable to send. Please try WhatsApp.");
+    } finally {
+      setSending(false);
+    }
   };
   const closeMenu = () => setMenuOpen(false);
   return (
@@ -647,11 +665,12 @@ export default function Portfolio() {
               />
             </label>
             <div className="bb-form-bottom">
-              <small>Opens your email app with your project brief.</small>
-              <button className="bb-button bb-button-dark" type="submit">
-                Let’s talk <Send size={16} />
+              <small>Send your project brief directly from this form.</small>
+              <button className="bb-button bb-button-dark" type="submit" disabled={sending}>
+                {sending ? "Sending…" : "Send enquiry"} <Send size={16} />
               </button>
             </div>
+            <p role="status" aria-live="polite">{sendStatus}</p>
           </form>
         </section>
       </main>
