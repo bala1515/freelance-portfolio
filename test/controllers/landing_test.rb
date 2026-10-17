@@ -4,6 +4,13 @@ class LandingTest < ActionDispatch::IntegrationTest
   include Devise::Test::IntegrationHelpers
   self.fixture_table_names = []
 
+  test "public metadata is accessible to older preview user agents" do
+    get root_path, headers: { "User-Agent" => "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/605.1.15 Version/13.1.1 Safari/605.1.15" }
+    assert_response :success
+    assert_select "meta[property='og:image'][content='https://builtbybala.site/portfolio/share-card-v1.png']"
+    assert_select "meta[name='twitter:card'][content='summary_large_image']"
+  end
+
   test "salon case study is public with its own search metadata" do
     get salon_billing_case_study_path
     assert_response :success
