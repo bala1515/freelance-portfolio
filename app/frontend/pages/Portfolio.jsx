@@ -427,6 +427,9 @@ export default function Portfolio() {
                 <span>Responsive UI</span>
               </div>
               <div className="bb-project-links">
+                <a className="bb-text-link" href="/work/salon-billing-app">
+                  Read the case study <ArrowUpRight size={18} />
+                </a>
                 <a className="bb-text-link" href={BILLING}>
                   Explore the application <ArrowUpRight size={18} />
                 </a>

@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Built by Bala | Freelance Web Developer in Sivakasi</title>
+    <% seo_title = @seo_title || "Built by Bala | Freelance Web Developer in Sivakasi" %>
+    <% seo_description = @seo_description || "Looking for a freelance web developer in Sivakasi? Bala Bharathi builds business websites, web applications, and custom software. Explore projects and get in touch." %>
+    <% canonical_url = @canonical_url || "https://builtbybala.site/" %>
+    <title><%= seo_title %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="description" content="Looking for a freelance web developer in Sivakasi? Bala Bharathi builds business websites, web applications, and custom software. Explore projects and get in touch.">
+    <meta name="description" content="<%= seo_description %>">
     <meta name="theme-color" content="#f5f3ed">
-    <link rel="canonical" href="https://builtbybala.site/">
-    <meta property="og:title" content="Built by Bala | Freelance Web Developer in Sivakasi">
-    <meta property="og:description" content="Bala Bharathi builds websites, web applications, and custom business software for businesses in Sivakasi and beyond. Explore projects and get in touch.">
+    <link rel="canonical" href="<%= canonical_url %>">
+    <meta property="og:title" content="<%= seo_title %>">
+    <meta property="og:description" content="<%= seo_description %>">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://builtbybala.site/">
+    <meta property="og:url" content="<%= canonical_url %>">
     <meta property="og:site_name" content="Built by Bala">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Built by Bala | Freelance Web Developer in Sivakasi">
-    <meta name="twitter:description" content="Bala Bharathi builds websites, web applications, and custom business software in Sivakasi and beyond.">
+    <meta name="twitter:title" content="<%= seo_title %>">
+    <meta name="twitter:description" content="<%= seo_description %>">
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -43,7 +46,7 @@
     <link rel="icon" href="/portfolio/favicon.svg" type="image/svg+xml">
     <%= vite_client_tag %>
     <%= vite_react_refresh_tag %>
-    <%= vite_javascript_tag 'portfolio.jsx' %>
+    <%= vite_javascript_tag(action_name == "newbilling" ? "case-study.js" : "portfolio.jsx") %>
   </head>
   <body class="portfolio-body">
     <%= yield %>

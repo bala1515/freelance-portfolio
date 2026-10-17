@@ -4,6 +4,17 @@ class LandingTest < ActionDispatch::IntegrationTest
   include Devise::Test::IntegrationHelpers
   self.fixture_table_names = []
 
+  test "salon case study is public with its own search metadata" do
+    get salon_billing_case_study_path
+    assert_response :success
+    assert_select "h1#case-title", count: 1
+    assert_select "title", text: "Salon Billing App Case Study | Built by Bala"
+    assert_select "link[rel='canonical'][href='https://builtbybala.site/work/salon-billing-app']"
+    assert_select "meta[property='og:url'][content='https://builtbybala.site/work/salon-billing-app']"
+    assert_select "img[src='/portfolio/newbilling-preview.jpg']"
+    assert_select "a[href='/qmnrofoqrygpvip/billing']"
+  end
+
   test "portfolio is public and uses its own layout" do
     get root_path
     assert_response :success

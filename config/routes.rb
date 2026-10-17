@@ -39,5 +39,6 @@ Rails.application.routes.draw do
   # root "posts#index"
   get "bkqvntzmxprlcas/dashboard", to: "home#index", as: :workspace_dashboard
   root "landing#index"
+  get "work/salon-billing-app", to: "landing#newbilling", as: :salon_billing_case_study
   get "qmnrofoqrygpvip/billing", to: "billing#index"
 end
