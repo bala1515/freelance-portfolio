@@ -57,18 +57,22 @@ test:
 production:
   primary: &primary_production
     <<: *default
-    database: newbilling_app_production
-    username: newbilling_app
+    database: defaultdb
+    username: avnadmin
     password: <%= ENV["NEWBILLING_APP_DATABASE_PASSWORD"] %>
+    socket: null
+    ssl_mode: required
+    host: mysql-7c5d25a-bharathibala179-aa28.l.aivencloud.com
+    port: 26030
   cache:
     <<: *primary_production
-    database: newbilling_app_production_cache
+    database: defaultdb_cache
     migrations_paths: db/cache_migrate
   queue:
     <<: *primary_production
-    database: newbilling_app_production_queue
+    database: defaultdb_queue
     migrations_paths: db/queue_migrate
   cable:
     <<: *primary_production
-    database: newbilling_app_production_cable
+    database: defaultdb_cable
     migrations_paths: db/cable_migrate
