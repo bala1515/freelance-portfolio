@@ -1,24 +1,17 @@
-# README
+# Built by Bala
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Portfolio website and salon billing application built with Ruby on Rails, React, Vite, and MySQL.
 
-Things you may want to cover:
+## Portfolio SEO
 
-* Ruby version
+Sivakasi-focused content, page titles and descriptions, canonical URL, social metadata, and sitemap for https://builtbybala.site/.
 
-* System dependencies
+The existing "Big ideas. Better landings." hero headline and design are preserved.
 
-* Configuration
+## Development setup
 
-* Database creation
+See `.ruby-version` for the Ruby version. Install dependencies with `bundle install` and `npm ci`. Configure local MySQL access in `config/database.yml`, prepare the database with `bin/rails db:prepare`, and start development with `bin/dev`.
 
-* Database initialization
+## Deployment
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Docker and Kamal configuration files are included. Configure the server, registry, database, secrets, and HTTPS before deployment.
