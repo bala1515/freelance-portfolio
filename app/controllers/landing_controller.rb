@@ -1,8 +1,20 @@
 class LandingController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :newbilling]
+  skip_before_action :authenticate_user!, only: [:index, :newbilling, :salon, :interior, :coaching]
   layout "landing"
 
   def index
+  end
+
+  def salon
+    render layout: "salon"
+  end
+
+  def interior
+    render layout: "interior"
+  end
+
+  def coaching
+    render layout: "coaching"
   end
 
   def newbilling

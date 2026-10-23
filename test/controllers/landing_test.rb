@@ -1,6 +1,33 @@
 require "test_helper"
 
 class LandingTest < ActionDispatch::IntegrationTest
+  test "coaching centre concept is public with an isolated layout" do
+    get coaching_website_path
+    assert_response :success
+    assert_select "title", text: /Vettri Academy/
+    assert_select "#coaching-root", count: 1
+    assert_select "body.portfolio-body", count: 0
+    assert_select "meta[name='robots'][content='noindex,follow']"
+  end
+
+  test "interior design concept is a public preview with its own layout" do
+    get interior_website_path
+    assert_response :success
+    assert_select "title", text: /Aara Interiors/
+    assert_select "#interior-root", count: 1
+    assert_select "body.portfolio-body", count: 0
+    assert_select "meta[name='robots'][content='noindex,follow']"
+  end
+
+  test "salon website preview is public and isolated from the portfolio layout" do
+    get salon_website_path
+    assert_response :success
+    assert_select "title", text: "ABC Salon — Website Preview | Built by Bala"
+    assert_select "#root", count: 1
+    assert_select "body.portfolio-body", count: 0
+    assert_select "meta[name='robots'][content='noindex,follow']"
+  end
+
   include Devise::Test::IntegrationHelpers
   self.fixture_table_names = []
 

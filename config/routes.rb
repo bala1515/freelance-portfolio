@@ -41,5 +41,8 @@ Rails.application.routes.draw do
   root "landing#index"
   post "contact/enquiries", to: "contact_enquiries#create"
   get "work/salon-billing-app", to: "landing#newbilling", as: :salon_billing_case_study
+  get "projects/abc-salon", to: "landing#salon", as: :salon_website
+  get "projects/aara-interiors", to: "landing#interior", as: :interior_website
+  get "projects/vettri-academy", to: "landing#coaching", as: :coaching_website
   get "qmnrofoqrygpvip/billing", to: "billing#index"
 end

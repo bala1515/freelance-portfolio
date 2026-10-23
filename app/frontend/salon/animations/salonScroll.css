@@ -1,0 +1,179 @@
+.reading-progress{position:fixed;top:0;left:0;width:100%;height:3px;background:#ff6b35;z-index:50;transform-origin:left;pointer-events:none}
+.depth-image{overflow:hidden}.depth-image img{will-change:transform}
+@media(prefers-reduced-motion:reduce){.depth-image img{will-change:auto}}
+.section-heading{position:relative;padding-bottom:28px}.section-heading:after{content:"";position:absolute;bottom:0;left:0;width:100%;height:1px;background:currentColor;opacity:.22;transform:scaleX(var(--accent-progress,1));transform-origin:left}
+
+/* Graphic accents enhance the existing layout; they never cover content or take input. */
+.hero-pointer-light {
+  position: absolute;
+  left: -180px;
+  top: -180px;
+  width: 360px;
+  height: 360px;
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+  background: radial-gradient(circle, #ffdb9429, #ffdb9400 68%);
+  border: 1px solid #0a7c6e12;
+  z-index: 0;
+}
+.hero-pointer-light::after {
+  content: '';
+  position: absolute;
+  inset: 32%;
+  border-radius: 50%;
+  border: 1px solid #0a7c6e17;
+}
+.look-image { position: relative; }
+.image-hover-label {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 2;
+  padding: 15px 18px;
+  background: #f59e0b;
+  color: #123d37;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  white-space: nowrap;
+  translate: -50% -50%;
+  opacity: 0;
+  pointer-events: none;
+}
+.service-menu-list { position: relative; border-top-color: transparent; }
+.service-menu-list::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 2px;
+  background: #f59e0b;
+  transform-origin: left;
+  transform: scaleX(var(--menu-rule, 1));
+}
+.button > span, .text-link > span, .nav-visit > span {
+  transition: transform .3s ease;
+}
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .button:hover > span, .text-link:hover > span, .nav-visit:hover > span {
+    transform: translate(3px, -3px);
+  }
+  .service-menu-row { position: relative; isolation: isolate; overflow: hidden; }
+  .service-menu-row::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0;
+    z-index: -1;
+    background: radial-gradient(350px circle at var(--row-x, 50%) var(--row-y, 50%), #ffffff14, transparent 80%);
+    transition: opacity .3s;
+  }
+  .service-menu-row:hover::before { opacity: 1; }
+  .service-menu-number { transition: color .3s, transform .4s; }
+  .service-menu-row:hover .service-menu-number { color: #ffd58a; transform: translateY(-3px); }
+  .service-menu-row h3 { transition: color .3s; }
+  .service-menu-row:hover h3 { color: #ffd58a; }
+  .service-menu-row::after {
+    content: '✳';
+    position: absolute;
+    right: 10px;
+    top: 12px;
+    font-size: 22px;
+    color: #f59e0b;
+    opacity: 0;
+    transform: rotate(-70deg) scale(.6);
+    transition: opacity .35s, transform .6s cubic-bezier(.2,.8,.2,1);
+    pointer-events: none;
+  }
+  .service-menu-row:hover::after { opacity: 1; transform: rotate(25deg) scale(1); }
+}
+@media (hover: none), (pointer: coarse), (prefers-reduced-motion: reduce) {
+  .hero-pointer-light, .image-hover-label { display: none; }
+}
+
+/* Only the phone ScrollTrigger opts into the stacked reel. Without JS/reduced
+   motion/short landscape screens, both photographs remain in normal flow. */
+.gallery-scroll-cue { display: none; }
+@media (max-width: 760px) and (min-height: 560px) {
+  .editorial-gallery.is-scroll-reel {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+    isolation: isolate;
+    overflow: hidden;
+  }
+  .is-scroll-reel .gallery-side { display: contents; }
+  .is-scroll-reel .gallery-statement { display: none; }
+  .is-scroll-reel .look-feature,
+  .is-scroll-reel .look-secondary {
+    grid-column: 1;
+    grid-row: 1;
+    min-width: 0;
+    width: 100%;
+    background: #fafafa;
+    align-self: start;
+    transform-origin: center;
+  }
+  .is-scroll-reel .look-secondary { z-index: 1; }
+  .is-scroll-reel .look-feature .look-image,
+  .is-scroll-reel .look-secondary .look-image {
+    height: clamp(230px, 52svh, 460px);
+  }
+  .is-scroll-reel figcaption { min-height: 78px; padding: 16px 0 8px; }
+  .is-scroll-reel figcaption > span { font-size: 9px; }
+  .is-scroll-reel figcaption h3 { font-size: 20px; }
+  .has-scroll-reel .gallery-scroll-cue {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 18px 0;
+    font-size: 8px;
+    letter-spacing: 1px;
+    color: #0a7c6e;
+    border-bottom: 1px solid #d6e2de;
+  }
+  .gallery-scroll-cue i {
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 100%;
+    height: 2px;
+    background: #ff6b35;
+    transform-origin: left;
+    transform: scaleX(var(--reel-progress, 0));
+  }
+}
+.has-scroll-reel .gallery-scroll-cue{grid-column:1;grid-row:2;width:100%;background:#fafafa}
+.is-scroll-reel .look-secondary{background:transparent}
+
+/* Preserve editorial line breaks while leaving text visible without JS. */
+.text-reveal-line {
+  display: block;
+  overflow: hidden;
+  padding-bottom: .15em;
+  margin-bottom: -.15em;
+}
+.text-reveal-inner { display: block; }
+@media (prefers-reduced-motion: reduce) {
+  .text-reveal-line { overflow: visible; }
+}
+
+/* Brand entrance masks retain the existing desktop and phone composition. */
+.hero-company-name > .hero-name-mask {
+  display: block;
+  overflow: hidden;
+  padding-bottom: .08em;
+  margin-bottom: -.08em;
+}
+.hero-name-line { display: block; }
+@media (min-width: 381px) and (max-width: 760px) {
+  .hero-company-name > .hero-name-mask {
+    display: inline-block;
+    vertical-align: bottom;
+    max-width: 100%;
+  }
+}
