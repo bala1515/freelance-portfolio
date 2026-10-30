@@ -15,10 +15,23 @@ import {
   Wrench,
   Sparkles,
 } from "lucide-react";
+function SocialIcon({ name, size = 24, ...props }) {
+  return <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" {...props}>
+    {name === "youtube" ? <><rect x="2" y="5" width="20" height="14" rx="4" /><path d="m10 9 6 3-6 3Z" fill="currentColor" stroke="none" /></> : name === "facebook" ? <path d="M15 3h-3a4 4 0 0 0-4 4v4H5v4h3v7h4v-7h3l1-4h-4V7h3Z" /> : <><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r=".8" fill="currentColor" stroke="none" /></>}
+  </svg>;
+}
+const Youtube = props => <SocialIcon name="youtube" {...props} />;
+const Facebook = props => <SocialIcon name="facebook" {...props} />;
+const Instagram = props => <SocialIcon name="instagram" {...props} />;
 const EMAIL = "balabharathiprofessional@gmail.com";
 const WHATSAPP = "https://wa.me/919361985078";
 const CASE_STUDY = "/work/salon-billing-app";
 const BILLING = "/qmnrofoqrygpvip/billing";
+const socialLinks = [
+  { name: "YouTube", href: "https://www.youtube.com/@balabharathi-d2p", handle: "@balabharathi-d2p", Icon: Youtube },
+  { name: "Facebook", href: "https://www.facebook.com/profile.php?id=61595657772760", handle: "Bala Bharathi", Icon: Facebook },
+  { name: "Instagram", href: "https://www.instagram.com/builtbybala_1515/", handle: "@builtbybala_1515", Icon: Instagram },
+];
 const services = [
   {
     title: "Business websites",
@@ -742,6 +755,24 @@ export default function Portfolio() {
             ))}
           </div>
         </section>
+        <section className="eb-social eb-shell" id="social" aria-labelledby="social-title">
+          <div className="eb-section-head">
+            <div>
+              <span className="eb-hand">connect with me ↘</span>
+              <MotionHeading id="social-title">FOLLOW<br /><span>BUILT BY BALA.</span></MotionHeading>
+            </div>
+            <p>Find me on YouTube, Facebook, and Instagram.</p>
+          </div>
+          <div className="eb-social-grid">
+            {socialLinks.map(({ name, href, handle, Icon }) => (
+              <a key={name} className="eb-social-card" href={href} target="_blank" rel="noopener noreferrer" aria-label={`Visit Built by Bala on ${name} (opens in a new tab)`}>
+                <Icon size={30} aria-hidden="true" />
+                <div><h3>{name}</h3><span>{handle}</span></div>
+                <ArrowUpRight size={24} aria-hidden="true" />
+              </a>
+            ))}
+          </div>
+        </section>
         <section className="eb-contact eb-blue eb-grid" id="contact">
           <div className="eb-shell eb-contact-grid">
             <div>
@@ -836,6 +867,11 @@ export default function Portfolio() {
           <a className="eb-footer-wordmark" href="#home">
             BUILT BY BALA<span>↗</span>
           </a>
+          <nav className="eb-footer-socials" aria-label="Social media links">
+            {socialLinks.map(({ name, href, Icon }) => (
+              <a key={name} href={href} target="_blank" rel="noopener noreferrer"><Icon size={18} aria-hidden="true" />{name}<ArrowUpRight size={14} aria-hidden="true" /></a>
+            ))}
+          </nav>
           <div>
             <span>© {new Date().getFullYear()} Built by Bala</span>
             <span>Independent developer. Sivakasi & beyond.</span>
