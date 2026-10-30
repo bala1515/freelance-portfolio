@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { ArrowRight, ArrowUpRight, RotateCcw, Printer } from "lucide-react";
-import { STATIC_RATES, estimateTotal } from "../lib/project-estimate";
+import { STATIC_RATES, estimateTotal, developmentRate } from "../lib/project-estimate";
 const money = (value) =>
   new Intl.NumberFormat("en-IN", {
     style: "currency",
@@ -22,7 +22,7 @@ export default function ProjectEstimator({ onEnquire }) {
     setSelection((current) => ({ ...current, ...changes }));
     setRevision((n) => n + 1);
   };
-  const summary = `Project estimate\nType: ${selection.type === "static" ? "Static website" : "Custom web application"}\nScope: ${selection.scope}\nDevelopment: ${total === null ? "Quote after discussion" : money(STATIC_RATES.development)}\nDomain: ${selection.domain ? (total === null ? "Required — quote separately" : money(STATIC_RATES.domain)) : "Already have / not required"}\nDeployment: ${selection.deployment ? (total === null ? "Required — quote separately" : money(STATIC_RATES.deployment)) : "Already arranged"}\nEstimate: ${total === null ? "Custom quote" : money(total)}\nPlease confirm the scope and final quote with me.`;
+  const summary = `Project estimate\nType: ${selection.type === "static" ? "Static website" : "Custom web application"}\nScope: ${selection.scope}\nDevelopment: ${total === null ? "Quote after discussion" : money(developmentRate(selection.scope))}\nDomain: ${selection.domain ? (total === null ? "Required — quote separately" : money(STATIC_RATES.domain)) : "Already have / not required"}\nDeployment: ${selection.deployment ? (total === null ? "Required — quote separately" : money(STATIC_RATES.deployment)) : "Already arranged"}${selection.type === "static" ? "\nBasic SEO: Included" : ""}\nEstimate: ${total === null ? "Custom quote" : money(total)}\nPlease confirm the scope and final quote with me.`;
   const printReceipt = () => {
     document.body.classList.add("printing-estimate");
     try {
@@ -118,7 +118,7 @@ export default function ProjectEstimator({ onEnquire }) {
                 <>
                   <p className="eb-estimate-hint">
                     {selection.type === "static"
-                      ? "A rough page count is enough. We’ll confirm the scope together; this choice does not add an automatic fee."
+                      ? "Including domain and deployment: 1–4 pages ₹12,000; 5–8 pages ₹14,000; more than 8 pages ₹20,000. Basic SEO is included in all static website packages."
                       : "Choose the level of functionality to discuss. App pricing is quoted after we understand the requirements."}
                   </p>
                   <div className="eb-estimate-options">
@@ -255,7 +255,7 @@ export default function ProjectEstimator({ onEnquire }) {
                     <dd>
                       {total === null
                         ? "To discuss"
-                        : money(STATIC_RATES.development)}
+                        : money(developmentRate(selection.scope))}
                     </dd>
                   </div>
                   <div>
@@ -282,6 +282,12 @@ export default function ProjectEstimator({ onEnquire }) {
                     <dt>Scope</dt>
                     <dd>{selection.scope}</dd>
                   </div>
+                  {selection.type === "static" && (
+                    <div>
+                      <dt>Basic SEO</dt>
+                      <dd>Included</dd>
+                    </div>
+                  )}
                 </dl>
                 <div className="eb-receipt-total">
                   <span>ESTIMATE</span>
