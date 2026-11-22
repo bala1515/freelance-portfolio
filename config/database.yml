@@ -62,7 +62,7 @@ production:
     password: <%= ENV["NEWBILLING_APP_DATABASE_PASSWORD"] %>
     socket: null
     ssl_mode: required
-    host: mysql-7c5d25a-bharathibala179-aa28.l.aivencloud.com
+    host: mysql-29c5a737-bharathibala179-aa28.l.aivencloud.com
     port: 26030
   cache:
     <<: *primary_production
